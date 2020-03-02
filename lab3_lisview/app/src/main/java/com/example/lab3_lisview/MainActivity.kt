@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 "1/3/1988", "011-615-9399")
         )
 
+        //adding custom adapter to listView
         listView.adapter = UserListAdapter(this, userList)
     }
 }

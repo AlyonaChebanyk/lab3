@@ -12,8 +12,9 @@ import android.widget.TextView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.user_item.view.*
 
+//custom listView adapter
 class UserListAdapter(
-    val context: Context,
+    private val context: Context,
     private val userList: ArrayList<User>
 ) : BaseAdapter() {
 
@@ -25,15 +26,19 @@ class UserListAdapter(
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.user_item, parent, false)
+        //setting image with Picasso library
         Picasso.get()
             .load(R.drawable.user_profile)
+                //to make image round
             .transform(CircleTransform(5))
             .into(view.pictureImageView)
 
         view.userInfoTextView.text = userList[position].userName
 
+        //starting user page activity when we click on the item
         view.setOnClickListener {
             val intent = Intent(view.context, UserPageActivity::class.java)
+            //put data to another activity
             intent.putExtra("user", userList[position])
             view.context.startActivity(intent)
         }
