@@ -8,6 +8,8 @@ import kotlinx.android.synthetic.main.user_item.view.*
 
 class ViewHolderUser(private val view: View) : RecyclerView.ViewHolder(view){
     fun bind(user: User){
+
+        //load image with picasso
         Picasso.get()
             .load(R.drawable.user_profile)
             .transform(CircleTransform(5))
@@ -15,6 +17,7 @@ class ViewHolderUser(private val view: View) : RecyclerView.ViewHolder(view){
 
         view.userInfoTextView.text = user.userName
 
+        //load user page when clicking on item
         view.setOnClickListener { view->
             val intent = Intent(view.context, UserPageActivity::class.java)
             intent.putExtra("user", user)

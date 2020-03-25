@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
+//recycler adapter for displaying user list
 class UserListAdapter(private val userList: ArrayList<User>) :
     RecyclerView.Adapter<ViewHolderUser>(){
 

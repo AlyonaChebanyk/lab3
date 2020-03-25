@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 "1/3/1988", "011-615-9399")
         )
 
+        //attach to recycler view layout manager and adapter
         userListRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = UserListAdapter(userList)
